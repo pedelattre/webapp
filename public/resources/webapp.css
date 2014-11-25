@@ -1,10 +1,5 @@
-body {
-  background-color: #254559;
-  color: #FFF;
-}
-
-h2{
-  font:"Lucida Grande";
+h2 {
+  margin-top : 50px;
   text-align : center;
 }
 
@@ -20,8 +15,6 @@ h2{
   margin-right: 10px;
 }
 
-footer {
-  position : relative;
-  vertical-align : bottom;
+p {
   text-align : center;
 }
