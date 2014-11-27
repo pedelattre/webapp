@@ -42,13 +42,20 @@ app.use serve_static "#{__dirname}/../public"
 
 app.get '/', (req, res, next) ->
   res.render 'index', title: 'Express'
-  
+
 app.post '/user/login', (req, res, next) ->
   res.json
     username: 'wdavidw'
     lastname: 'Worms'
     Firstname: 'David'
     email: 'david@adaltas.com'
+
+app.post '/user/signup', (req, res, next) ->
+  res.json
+    username: 'pedelattre'
+    lastname: 'Delattre'
+    Firstname: 'Paul-Emmanuel'
+    email: 'pedelattre@gmail.com'
 
 app.use serve_index "#{__dirname}/../public"
 if process.env.NODE_ENV is 'development'

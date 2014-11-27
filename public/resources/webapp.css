@@ -1,8 +1,6 @@
 h2 {
-  margin-top : 50px;
-  text-align : center;
+  text-align: center;
 }
-
 #login {
   position: relative;
   width: 300px;
@@ -14,7 +12,6 @@ h2 {
 #login button {
   margin-right: 10px;
 }
-
 p {
-  text-align : center;
+  text-align: center;
 }
