@@ -1,14 +1,11 @@
+
 level = require 'level'
 
 module.exports = (db="#{__dirname}../db") ->
-  #open the database
   db = level db if typeof db is 'string'
-  #once the database db is opened we can use it
-  #each time a function is called, a message variable "callback" is created
   close: (callback) ->
     db.close callback
   users:
-    # read from db
     get: (username, callback) ->
       user = {}
       db.createReadStream
@@ -21,7 +18,6 @@ module.exports = (db="#{__dirname}../db") ->
         callback err
       .on 'end', ->
         callback null, user
-    # put a new user in db
     set: (username, user, callback) ->
       ops = for k, v of user
         continue if k is 'username'
@@ -30,5 +26,5 @@ module.exports = (db="#{__dirname}../db") ->
         value: v
       db.batch ops, (err) ->
         callback err
-    del: (username, callback) ->
-      # TODO
+    #del: (username, callback) ->
+  console.log 'Connected to DataBase'

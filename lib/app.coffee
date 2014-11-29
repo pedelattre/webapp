@@ -13,6 +13,7 @@ coffee = require 'connect-coffee-script'
 serve_favicon = require 'serve-favicon'
 serve_index = require 'serve-index'
 serve_static = require 'serve-static'
+db = require './db'
 # config = require '../conf/hdfs'
 
 app = express()
@@ -53,9 +54,9 @@ app.post '/user/login', (req, res, next) ->
 app.post '/user/signup', (req, res, next) ->
   res.json
     username: 'pedelattre'
-    lastname: 'Delattre'
-    Firstname: 'Paul-Emmanuel'
-    email: 'pedelattre@gmail.com'
+    lastname: 'Paul-Emmnanuel'
+    Firstname: 'Delattre'
+    email: 'pdelattr@ece.fr'
 
 app.use serve_index "#{__dirname}/../public"
 if process.env.NODE_ENV is 'development'
