@@ -17,7 +17,7 @@ html
           console.log 'ready'
 
           $('#signup').hide()
-          
+
           $('#loginButton').click (e) ->
             user =
               username: $('#login-username').val()
@@ -57,27 +57,20 @@ html
     div#main
       form#login(action="/user/login", method="post", role="form")
         h3 Login to your account
-        label(for="login-username") Username
-        input#login-username.form-control(type='text', name="username")
-        label(for="login-password") Password
-        input#login-password.form-control(type='password', name="password")
-        input.btn.btn-primary(type='submit', value="Login", id="loginButton")
+        input#login-username.form-control(type='text', placeholder="Username", name="username")
+        input#login-password.form-control(type='password', placeholder="Password", name="password")
+        input.btn(type='submit', value="Login", id="loginButton")
         p Don't have an account?
           a(class="signup" href="#" id="signupLink") Signup here!
 
       form#signup(action="/user/signup", method="post", role="form")
         h3 Create your account
-        label(for="signup-username") Username
-        input#signup-username.form-control(type='text', name="username")
-        label(for="signup-password") Password
-        input#signup-password.form-control(type='password', name="password")
-        label(for="signup-firstname") First name
-        input#signup-firstname.form-control(type='text', name="firstname")
-        label(for="signup-lastname") Last name
-        input#signup-lastname.form-control(type='text', name="lastname")
-        label(for="signup-email") Email
-        input#signup-email.form-control(type='text', name="email")
-        input.btn.btn-default(type='submit', value="Signup", id="signinButton")
+        input#signup-username.form-control(type='text', placeholder="Username", name="username")
+        input#signup-password.form-control(type='password', placeholder="Password", name="password")
+        input#signup-firstname.form-control(type='text',placeholder="First name", name="firstname")
+        input#signup-lastname.form-control(type='text',placeholder="Last name", name="lastname")
+        input#signup-email.form-control(type='text', placeholder="Email", name="email")
+        input.btn(type='submit', value="Signup", id="signinButton")
         p Already have an account?
           a(class="login" href="#" id="loginLink") Login here!
 

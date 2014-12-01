@@ -53,3 +53,11 @@ input[type=text],
   margin-top: 15px;
   font-size: 18px;
 }
+input.btn {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+input.btn:hover {
+  color: #fff;
+  background-color: #113f59;
+}
