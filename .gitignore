@@ -1,4 +1,1 @@
-#ignore these files
-
-#ignore these folder
-node_modules
+**/node_modules
