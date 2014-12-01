@@ -43,7 +43,6 @@ html
             $.post "/user/signup", user, (data) ->
               console.log 'data', data
             , 'json'
-            $("#login").hide()
 
           $('#loginLink').click (e) ->
             $("#signup").slideUp "slow", ->
