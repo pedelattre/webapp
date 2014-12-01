@@ -14,6 +14,7 @@ serve_favicon = require 'serve-favicon'
 serve_index = require 'serve-index'
 serve_static = require 'serve-static'
 db = require './db'
+new_db = db "#{__dirname}/../db"
 # config = require '../conf/hdfs'
 
 app = express()

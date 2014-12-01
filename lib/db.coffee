@@ -27,4 +27,3 @@ module.exports = (db="#{__dirname}../db") ->
       db.batch ops, (err) ->
         callback err
     #del: (username, callback) ->
-  console.log 'Connected to DataBase'
