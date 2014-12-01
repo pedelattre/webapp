@@ -16,7 +16,9 @@ html
         $().ready ->
           console.log 'ready'
 
-          $('#log').click (e) ->
+          $('#signup').hide()
+          
+          $('#loginButton').click (e) ->
             user =
               username: $('#login-username').val()
               password: $('#login-password').val()
@@ -26,7 +28,13 @@ html
               console.log 'data', data
             , 'json'
 
-          $('#sign').click (e) ->
+
+          $('#signupLink').click (e) ->
+            $("#login").slideUp "slow", ->
+              $("#signup").slideDown "slow"
+              return
+
+          $('#signupButton').click (e) ->
             user =
               username: $('#login-username').val()
               password: $('#login-password').val()
@@ -35,30 +43,42 @@ html
             $.post "/user/signup", user, (data) ->
               console.log 'data', data
             , 'json'
+            $("#login").hide()
+
+          $('#loginLink').click (e) ->
+            $("#signup").slideUp "slow", ->
+              $("#login").slideDown "slow"
+              return
 
   body
 
-    h2 Welcome
+    h2 NodeForm
 
-    form#login(action="/user/login", method="post", role="form")
-      table
-        tr.form-group
-          th
-            label(for="login-username") Username
-          td
-            input#login-username.form-control(type='text', name="username")
-        tr.form-group
-          th
-            label(for="login-password") Password
-          td
-            input#login-password.form-control(type='password', name="password")
-        tr.form-group
-          th
-          td
-            //- button.btn.btn-primary(type='button') Login
-            //- button.btn.btn-default(type='button') Signup
-            input.btn.btn-primary(type='submit', value="Login", id="log")
-            input.btn.btn-default(type='submit', value="Signup", id="sign")
+    div#main
+      form#login(action="/user/login", method="post", role="form")
+        h3 Login to your account
+        label(for="login-username") Username
+        input#login-username.form-control(type='text', name="username")
+        label(for="login-password") Password
+        input#login-password.form-control(type='password', name="password")
+        input.btn.btn-primary(type='submit', value="Login", id="loginButton")
+        p Don't have an account?
+          a(class="signup" href="#" id="signupLink") Signup here!
 
+      form#signup(action="/user/signup", method="post", role="form")
+        h3 Create your account
+        label(for="signup-username") Username
+        input#signup-username.form-control(type='text', name="username")
+        label(for="signup-password") Password
+        input#signup-password.form-control(type='password', name="password")
+        label(for="signup-firstname") First name
+        input#signup-firstname.form-control(type='text', name="firstname")
+        label(for="signup-lastname") Last name
+        input#signup-lastname.form-control(type='text', name="lastname")
+        label(for="signup-email") Email
+        input#signup-email.form-control(type='text', name="email")
+        input.btn.btn-default(type='submit', value="Signup", id="signinButton")
+        p Already have an account?
+          a(class="login" href="#" id="loginLink") Login here!
 
-    p Done by Andrew Collonge & Paul-Emmanuel Delattre
+    p#footer Done by Andrew Collonge & Paul-Emmanuel Delattre
