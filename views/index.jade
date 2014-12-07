@@ -28,7 +28,6 @@ html
               console.log 'data', data
             , 'json'
 
-
           $('#signupLink').click (e) ->
             $("#login").slideUp "slow", ->
               $("#signup").slideDown "slow"
@@ -36,8 +35,11 @@ html
 
           $('#signupButton').click (e) ->
             user =
-              username: $('#login-username').val()
-              password: $('#login-password').val()
+              username: $('#signup-username').val()
+              password: $('#signup-password').val()
+              firstname: $('#signup-firstname').val()
+              lastname: $('#signup-lastname').val()
+              email: $('#signup-email').val()
             console.log 'user signup', user
             e.preventDefault()
             $.post "/user/signup", user, (data) ->
@@ -66,6 +68,7 @@ html
         h3 Create your account
         input#signup-username.form-control(type='text', placeholder="Username", name="username")
         input#signup-password.form-control(type='password', placeholder="Password", name="password")
+        input#signup-confirmpassword.form-control(type='password', placeholder="Confirm password", name="confirm-password")
         input#signup-firstname.form-control(type='text',placeholder="First name", name="firstname")
         input#signup-lastname.form-control(type='text',placeholder="Last name", name="lastname")
         input#signup-email.form-control(type='text', placeholder="Email", name="email")
