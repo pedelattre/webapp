@@ -46,10 +46,11 @@ app.get '/', (req, res, next) ->
   res.render 'index', title: 'Express'
 
 app.post '/user/login', (req, res, next) ->
-  new_db.users.get req.body.username
-  , (err) ->
-    return next err if err
-  res.json user
+  res.new_db.users.get req.body.username,
+    (err) ->
+      return next err if err
+  res.json
+    type : 'Successfully logged in'
 
 app.post '/user/signup', (req, res, next) ->
   new_db.users.set req.body.username,
@@ -57,9 +58,10 @@ app.post '/user/signup', (req, res, next) ->
     firstname: req.body.firstname
     lastname: req.body.lastname
     email: req.body.email
-    , (err) ->
-      return next err if err
+  , (err) ->
+    return next err if err
   res.json
+    type : 'New user added'
 
 app.use serve_index "#{__dirname}/../public"
 if process.env.NODE_ENV is 'development'
